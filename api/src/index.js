@@ -1,9 +1,6 @@
-const restify = require('restify')
-const server = restify.createServer()
+const {factoryServer} = require('./server')
 
-server.get('/status', (req, res, next) => {
-  res.send({message: `I'M A LIVE... lol`})
-  next()
-})
+const server = factoryServer()
+const port = process.env.PORT || 3000
 
-server.listen(process.env.PORT || 3000)
+server.listen(port, () => console.log(`Listening on ${port}`))
