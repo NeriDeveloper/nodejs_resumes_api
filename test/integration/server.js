@@ -42,7 +42,7 @@ describe('Routes resumes', () => {
   describe('Route GET /resumes', () => {
     it('should return a list of resumes', (done) => {
       request
-        .get('/api/v1/resumes')
+        .get('/resumes')
         .end((err, res) => {
           expect(res.body[0].id).to.be.eql(hugoLuisSantosResume.id)
           expect(res.body[0].name).to.be.eql(hugoLuisSantosResume.name)
