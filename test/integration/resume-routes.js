@@ -34,6 +34,19 @@ describe('Routes resumes', () => {
     })
   })
 
+  describe('Route GET /resumes/{id}', () => {
+    it('should return a resume', (done) => {
+      request
+        .get('/resumes/1')
+        .end((err, res) => {
+          expect(res.body.id).to.be.eql(hugoLuisSantosResume.id)
+          expect(res.body.name).to.be.eql(hugoLuisSantosResume.name)
+          expect(res.body.email).to.be.eql(hugoLuisSantosResume.email)
+          done(err)
+        })
+    })
+  })
+
   after((done) => {
     Resume
       .destroy({where: {}})
